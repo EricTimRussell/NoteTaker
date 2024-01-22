@@ -1,0 +1,36 @@
+.fs-sm {
+  font-size: 16px;
+}
+.fs-md {
+  font-size: 24px;
+}
+.fs-lg {
+  font-size: 32px;
+}
+.fs-xlg {
+  font-size: 44px;
+}
+
+@media screen and (max-width: 768px) {
+  .fs-md {
+    font-size: 22px;
+  }
+  .fs-lg {
+    font-size: 28px;
+  }
+  .fs-xlg {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .fs-md {
+    font-size: 20px;
+  }
+  .fs-lg {
+    font-size: 26px;
+  }
+  .fs-xlg {
+    font-size: 32px;
+  }
+}
