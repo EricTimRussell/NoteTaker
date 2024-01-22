@@ -1,5 +1,5 @@
 <template>
-  <section class="container-fluid bg-header shadow-lg">
+  <section class="container-fluid bg-darker shadow-lg">
     <div class="row">
       <div class="d-flex py-2 px-3 col-sm-4 col-md-3 justify-content-start">
         <RouterLink to="/">
@@ -12,7 +12,7 @@
       <div class="d-flex col-sm-4 col-md-2 justify-content-start">
         <nav id="nav" class="d-none d-sm-flex">
           <RouterLink class="pe-1 fs-lg" to="/">Home</RouterLink>
-          <span class="fs-lg">||</span>
+          <span class="fs-lg">|</span>
           <RouterLink class="ps-1 fs-lg" to="/notes">Notes</RouterLink>
         </nav>
       </div>

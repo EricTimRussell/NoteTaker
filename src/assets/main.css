@@ -1,5 +1,8 @@
-.bg-header {
+.bg-darker {
   background-color: steelblue;
+}
+.bg-lighter {
+  background-color: lightsteelblue;
 }
 
 /* NOTE Font classes */

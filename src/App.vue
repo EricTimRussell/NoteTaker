@@ -3,6 +3,7 @@
     <NavbarCompnent />
   </header>
 
+
   <RouterView />
 </template>
 
