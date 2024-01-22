@@ -1,3 +1,3 @@
-# NoteTaker
+# NoteTakr
 
-A refresher course on vue ecosystem, firebase, and tailwind.
+A refresher course on vue ecosystem, firebase, and bootstrap.

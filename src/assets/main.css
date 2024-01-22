@@ -1,3 +1,8 @@
+.bg-header {
+  background-color: steelblue;
+}
+
+/* NOTE Font classes */
 .fs-sm {
   font-size: 16px;
 }
@@ -34,3 +39,5 @@
     font-size: 32px;
   }
 }
+
+/* NOTE Button Classes */

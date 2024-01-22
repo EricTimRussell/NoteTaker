@@ -1,7 +1,7 @@
 <template>
-  <section class="container-fluid bg-secondary">
+  <section class="container-fluid bg-header shadow-lg">
     <div class="row">
-      <div class="d-flex p-2 col-sm-4 col-md-3 justify-content-start">
+      <div class="d-flex py-2 px-3 col-sm-4 col-md-3 justify-content-start">
         <RouterLink to="/">
           <span class="material-symbols-outlined fs-lg">
             note_alt
@@ -18,17 +18,24 @@
       </div>
       <div class="d-flex justify-content-end col-sm-4 col-md-7 d-none d-sm-flex">
         <div class="pt-2 px-2">
-          <button class="btn-light">Sign Up</button>
+          <button class="btn btn-primary">Login/Create</button>
         </div>
         <div class="pt-2">
-          <button class="btn-dark">Log In</button>
+          <button class="btn btn-light">Logout</button>
         </div>
       </div>
     </div>
-    <div class="d-flex col-12 p-2 justify-content-end d-flex d-sm-none">
-      <span class="material-symbols-outlined fs-xlg">
-        menu
-      </span>
+    <div class="d-flex col-12 p-1 justify-content-end d-flex d-sm-none">
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="material-symbols-outlined fs-lg">
+            menu
+          </span></button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Login/Create</a></li>
+          <li><a class="dropdown-item" href="#">Logout</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 </template>
@@ -49,4 +56,7 @@ a{
   text-decoration: none;
 }
 
+.dropdown-toggle::after {
+  display: none;
+}
 </style>
