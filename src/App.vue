@@ -1,9 +1,9 @@
 <template>
-  <header class="font-mono">
+  <header>
     <NavbarCompnent />
   </header>
 
-  <RouterView class="font-mono" />
+  <RouterView />
 </template>
 
 <script setup>
