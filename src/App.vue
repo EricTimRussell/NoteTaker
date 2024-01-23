@@ -13,5 +13,7 @@ import NavbarCompnent from "./components/NavbarCompnent.vue";
 </script>
 
 <style>
-
+body{
+  background-color: whitesmoke;
+}
 </style>
