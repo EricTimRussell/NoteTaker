@@ -1,10 +1,10 @@
 <template>
   <section class="container-fluid">
-    <!-- SECTION Create card -->
+    <!-- SECTION Create note -->
     <div class="row justify-content-center p-3">
       <NoteFormComponent />
     </div>
-    <!-- SECTION Card -->
+    <!-- SECTION Note card -->
     <div class="row">
       <NoteCardComponent v-for="note in storeNotes.notes" :notes="note" :key="note.id" />
     </div>

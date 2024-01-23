@@ -9,11 +9,13 @@
         </div>
       </div>
       <div class="d-flex justify-content-between card-footer bg-light">
-        <button class="card-link btn">
-          <span class="material-symbols-outlined edit-icon">
-            edit
-          </span>
-        </button>
+        <RouterLink :to="`/editNote/${notes.id}`">
+          <button class="card-link btn">
+            <span class="material-symbols-outlined edit-icon">
+              edit
+            </span>
+          </button>
+        </RouterLink>
         <button @click="storeNotes.removeNote(notes.id)" class="card-link btn">
           <span class="material-symbols-outlined delete-icon">
             delete_forever
