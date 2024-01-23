@@ -2,11 +2,11 @@
   <section class="container-fluid">
     <!-- SECTION Create card -->
     <div class="row justify-content-center p-3">
-      <NoteFormComponent />
+      <NoteFormComponent :notes="notes" />
     </div>
     <!-- SECTION Card -->
     <div class="row">
-      <NoteCardComponent v-for="note in notes" :notes="note" :key="note.id" />
+      <NoteCardComponent v-for="note in notes" :notes="note" :key="note.id" @removeNote="removeNote" />
     </div>
   </section>
 </template>
@@ -40,6 +40,9 @@ const notes = ref([
 
 ])
 
+function removeNote(id) {
+  notes.value = notes.value.filter(note => { return note.id !== id })
+}
 
 </script>
 
