@@ -2,10 +2,8 @@
   <div class="col-lg-3 col-md-4 col-sm-6 col-12 py-2">
     <div class="card">
       <div class="card-body bg-lighter">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <h5 class="card-title">{{ notes.title }}</h5>
+        <p class="card-text">{{ notes.content }}</p>
         <div class="d-flex justify-content-between">
           <button class="card-link btn">
             <span class="material-symbols-outlined edit-icon">
@@ -24,6 +22,13 @@
 </template>
 
 <script setup>
+defineProps({
+  notes: { id: Number, title: String, content: String }
+})
+
+
+
+
 
 </script>
 
