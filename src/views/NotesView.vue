@@ -1,13 +1,13 @@
 <template>
   <section class="container-fluid">
     <!-- SECTION Create card -->
-    <div class="row">
-      <div class="col-12">
-        <button class="btn" title="Create Note">
-          <span class="material-symbols-outlined fs-xlg p-2 text-success add-note">
-            add_circle
-          </span>
-        </button>
+    <div class="row justify-content-center pt-3">
+      <div class="form-floating col-md-10 col-12 p-3 bg-lighter rounded">
+        <textarea class="form-control" placeholder="Write a new note here" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea" class="m-3">Write a new note</label>
+        <div class="d-flex justify-content-end pt-2">
+          <button class="btn btn-primary">Create Note</button>
+        </div>
       </div>
     </div>
     <!-- SECTION Card -->
