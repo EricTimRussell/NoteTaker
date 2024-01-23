@@ -2,7 +2,7 @@
   <section class="container-fluid">
     <!-- SECTION Create card -->
     <div class="row justify-content-center p-3">
-      <NoteFormComponent :notes="notes" />
+      <NoteFormComponent :notes="notes" @addNote="addNote" />
     </div>
     <!-- SECTION Card -->
     <div class="row">
@@ -39,6 +39,10 @@ const notes = ref([
   }
 
 ])
+
+function addNote(note) {
+  notes.value.unshift(note)
+}
 
 function removeNote(id) {
   notes.value = notes.value.filter(note => { return note.id !== id })

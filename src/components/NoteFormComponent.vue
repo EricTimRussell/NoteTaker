@@ -10,7 +10,7 @@
       <label for="content" class="m-3"></label>
     </div>
     <div class="d-flex justify-content-end">
-      <button :disabled="!newNote.content" @click="addNote" class="btn btn-primary">Create Note</button>
+      <button :disabled="!newNote.content" @click="handleAddNote" class="btn btn-primary">Create Note</button>
     </div>
   </div>
 </template>
@@ -24,16 +24,19 @@ const props = defineProps({
 
 const newNote = ref({ title: '', content: '' })
 
-function addNote() {
+const emit = defineEmits(['addNote'])
+
+function handleAddNote() {
   let currentDate = new Date().getTime()
   let note = {
     id: currentDate,
     title: newNote.value.title,
     content: newNote.value.content
   }
-  // note.push(props.notes)
-  console.log(note);
+  emit('addNote', note)
+  newNote.value = ref({ title: '', content: '' })
 }
+
 </script>
 
 <style lang="scss" scoped></style>
