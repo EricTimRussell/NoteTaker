@@ -14,7 +14,7 @@
             edit
           </span>
         </button>
-        <button @click="handleRemoveNote" class="card-link btn">
+        <button @click="storeNotes.removeNote(notes.id)" class="card-link btn">
           <span class="material-symbols-outlined delete-icon">
             delete_forever
           </span>
@@ -26,24 +26,19 @@
 
 <script setup>
 import { computed } from "vue";
-
+import { useStoreNotes } from "@/stores/storeNotes";
 
 const props = defineProps({
   notes: { type: Object, required: true }
 })
 
-const emit = defineEmits(['removeNote'])
-
+const storeNotes = useStoreNotes()
 
 const characterLength = computed(() => {
   let length = props.notes.content.length
   let description = length > 1 ? 'characters' : 'character'
   return `${length} ${description}`
 })
-
-function handleRemoveNote() {
-  emit('removeNote', props.notes.id)
-}
 
 </script>
 

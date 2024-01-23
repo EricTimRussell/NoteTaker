@@ -36,6 +36,9 @@ export const useStoreNotes = defineStore('storeNotes' , {
         content: newNote.value.content
      }
      this.notes.unshift(note)
+    },
+    removeNote(id){
+      this.notes = this.notes.filter(note => {return note.id !== id})
     }
   }
-})
+}) 

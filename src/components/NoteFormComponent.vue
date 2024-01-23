@@ -27,8 +27,6 @@ const props = defineProps({
 
 const newNote = ref({ title: '', content: '' })
 
-const emit = defineEmits(['addNote'])
-
 function handleAddNote() {
   storeNotes.addNote(newNote)
 
