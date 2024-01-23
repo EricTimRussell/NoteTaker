@@ -17,6 +17,9 @@
 
 <script setup>
 import { ref } from "vue";
+import { useStoreNotes } from "@/stores/storeNotes";
+
+const storeNotes = useStoreNotes()
 
 const props = defineProps({
   notes: { id: Number, title: String, content: String }
@@ -27,13 +30,8 @@ const newNote = ref({ title: '', content: '' })
 const emit = defineEmits(['addNote'])
 
 function handleAddNote() {
-  let currentDate = new Date().getTime()
-  let note = {
-    id: currentDate,
-    title: newNote.value.title,
-    content: newNote.value.content
-  }
-  emit('addNote', note)
+  storeNotes.addNote(newNote)
+
   newNote.value = ref({ title: '', content: '' })
 }
 
