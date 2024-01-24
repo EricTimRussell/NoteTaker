@@ -23,9 +23,10 @@
 <script setup>
 import { ref } from "vue";
 import { useStoreNotes } from "@/stores/storeNotes";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute()
+const router = useRouter()
 
 const storeNotes = useStoreNotes()
 
@@ -34,7 +35,8 @@ const noteContent = ref({ title: '', content: '' })
 noteContent.value = storeNotes.getNoteContentById(route.params.id)
 
 function handleEditNote() {
-  storeNotes.editNote(noteContent)
+  storeNotes.updateNote(route.params.id, noteContent.value)
+  router.push('/notes')
 }
 
 </script>
