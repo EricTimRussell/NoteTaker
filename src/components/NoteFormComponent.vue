@@ -21,10 +21,6 @@ import { useStoreNotes } from "@/stores/storeNotes";
 
 const storeNotes = useStoreNotes()
 
-const props = defineProps({
-  notes: { id: Number, title: String, content: String }
-})
-
 const newNote = ref({ title: '', content: '' })
 
 function handleAddNote() {

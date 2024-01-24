@@ -30,7 +30,7 @@ const router = useRouter()
 
 const storeNotes = useStoreNotes()
 
-const noteContent = ref({ title: '', content: '' })
+const noteContent = ref()
 
 noteContent.value = storeNotes.getNoteContentById(route.params.id)
 
