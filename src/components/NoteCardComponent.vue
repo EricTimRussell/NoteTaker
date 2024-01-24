@@ -45,6 +45,10 @@ const characterLength = computed(() => {
 </script>
 
 <style scoped>
+.card-body{
+  height: 30vh;
+  max-height: 30vh;
+}
 .add-note:hover{
 transform: scale(1.2);
 }

@@ -4,11 +4,13 @@
       <div class="form-floating col-md-10 col-12 p-5 bg-lighter rounded">
         <h1>Edit Note</h1>
         <div class="form-floating mb-3">
-          <input v-model="noteContent.title" type="text" class="form-control" id="title" placeholder="Edit Note title">
+          <input v-model="noteContent.title" maxlength="40" type="text" class="form-control" id="title"
+            placeholder="Edit Note title">
           <label for="title">Edit Title</label>
         </div>
         <div>
-          <textarea v-model="noteContent.content" class="form-control" placeholder="Edit Note" id="content"></textarea>
+          <textarea v-model="noteContent.content" maxlength="450" rows="5" class="form-control" placeholder="Edit Note"
+            id="content"></textarea>
           <label for="content" class="m-3"></label>
         </div>
         <div class="d-flex justify-content-end gap-1">

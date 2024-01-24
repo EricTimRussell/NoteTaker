@@ -1,13 +1,13 @@
 <template>
   <div class="form-floating col-md-10 col-12 p-3 bg-lighter rounded">
     <div class="form-floating mb-3">
-      <input v-model="newNote.title" type="text" class="form-control" id="title" placeholder="Note title">
-      <label for="title">Title</label>
+      <input v-model="newNote.title" type="text" maxlength="40" class="form-control" id="title" placeholder="Note title">
+      <label for="title">Note Title</label>
     </div>
     <div>
-      <textarea v-model="newNote.content" class="form-control" placeholder="Write a new note here"
-        id="content"></textarea>
-      <label for="content" class="m-3"></label>
+      <textarea v-model="newNote.content" maxlength="450" class="form-control" rows="5" placeholder="Write note here..."
+        id="content">
+      </textarea>
     </div>
     <div class="d-flex justify-content-end">
       <button :disabled="!newNote.content" @click="handleAddNote" class="btn btn-primary">Create Note</button>
