@@ -5,22 +5,22 @@ export const useStoreNotes = defineStore('storeNotes' , {
     return {
       notes: [
         {
-          id: 1,
+          id: "1",
           title: "Title 1",
           content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id suscipit voluptate, ut nihil labore facilis vero praesentium repudiandae officia quo, distinctio ducimus! Error fugiat quaerat pariatur, non voluptatibus accusantium unde."
         },
         {
-          id: 2,
+          id: "2",
           title: "Title 2",
           content: "Id suscipit voluptate, ut nihil labore facilis vero praesentium repudiandae officia quo, distinctio ducimus! Error fugiat quaerat pariatur, non voluptatibus accusantium unde."
         },
         {
-          id: 3,
+          id: "3",
           title: "Title 3",
           content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id suscipit voluptate, ut nihil labore facilis vero praesentium."
         },
         {
-          id: 4,
+          id: "4",
           title: "Title 4",
           content: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id suscipit voluptate, ut nihil labore facilis vero praesentium repudiandae officia quo, distinctio ducimus! Error fugiat quaerat pariatur, non voluptatibus accusantium unde. this is an even longer note like if i was really writing about something important in a lot of detail and what not."
         }
@@ -39,6 +39,11 @@ export const useStoreNotes = defineStore('storeNotes' , {
     },
     removeNote(id){
       this.notes = this.notes.filter(note => {return note.id !== id})
+    }
+  },
+  getters: {
+    getNoteContentById: (state) => {
+        return (id) => state.notes.find((note) => note.id === id)
     }
   }
 }) 
