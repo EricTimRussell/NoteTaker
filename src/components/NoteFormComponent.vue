@@ -5,8 +5,8 @@
       <label for="title">Note Title</label>
     </div>
     <div>
-      <textarea v-model="newNote.content" maxlength="450" class="form-control" rows="5" placeholder="Write note here..."
-        id="content">
+      <textarea v-model="newNote.content" v-autofocus maxlength="450" class="form-control" rows="5"
+        placeholder="Write note here..." id="content">
       </textarea>
     </div>
     <div class="d-flex justify-content-end">
@@ -18,7 +18,7 @@
 <script setup>
 import { ref } from "vue";
 import { useStoreNotes } from "@/stores/storeNotes";
-
+import { vAutofocus } from "@/directives/vAutofocus";
 const storeNotes = useStoreNotes()
 
 const newNote = ref({ title: '', content: '' })

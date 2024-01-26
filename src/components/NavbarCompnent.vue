@@ -16,7 +16,7 @@
           <RouterLink class="ps-1 fs-lg" to="/notes">Notes</RouterLink>
         </nav>
       </div>
-      <div class="d-flex justify-content-end col-sm-4 col-md-7 d-none d-sm-flex">
+      <div class="d-flex justify-content-end col-sm-4 col-md-7 d-none d-sm-flex p-2">
         <div class="pt-2 px-2">
           <button class="btn btn-primary">Login/Create</button>
         </div>

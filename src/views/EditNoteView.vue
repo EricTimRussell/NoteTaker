@@ -4,7 +4,7 @@
       <div class="form-floating col-md-10 col-12 p-5 bg-lighter rounded">
         <h1>Edit Note</h1>
         <div class="form-floating mb-3">
-          <input v-model="noteContent.title" maxlength="40" type="text" class="form-control" id="title"
+          <input v-model="noteContent.title" v-autofocus maxlength="40" type="text" class="form-control" id="title"
             placeholder="Edit Note title">
           <label for="title">Edit Title</label>
         </div>
@@ -26,6 +26,7 @@
 import { ref } from "vue";
 import { useStoreNotes } from "@/stores/storeNotes";
 import { useRoute, useRouter } from "vue-router";
+import { vAutofocus } from "@/directives/vAutofocus";
 
 const route = useRoute()
 const router = useRouter()
