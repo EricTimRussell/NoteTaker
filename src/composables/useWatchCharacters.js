@@ -1,9 +1,10 @@
-import { watch } from "vue"
+import { watch, watchEffect } from "vue"
+
 
 export function useWatchCharacters(valueToWatch){
-  watch(valueToWatch, (noteLength) => {
-    if (noteLength.length === 50) {
-      alert('Only 450 Characters Allowed')
+  watchEffect(() => {
+    if (valueToWatch.content.length === 450) {
+      alert("Max Note Length of 450 Characters");
     }
-  })
+  });
 }

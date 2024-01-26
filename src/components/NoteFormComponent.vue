@@ -31,7 +31,7 @@ function handleAddNote() {
   newNote.value = ref({ title: '', content: '' })
 }
 
-useWatchCharacters(newNote)
+useWatchCharacters(newNote.value)
 
 </script>
 
