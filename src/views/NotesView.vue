@@ -18,6 +18,9 @@ import { useStoreNotes } from "@/stores/storeNotes";
 
 const storeNotes = useStoreNotes()
 
+
+
+
 </script>
 
 <style scoped>

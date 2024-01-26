@@ -19,6 +19,8 @@
 import { ref } from "vue";
 import { useStoreNotes } from "@/stores/storeNotes";
 import { vAutofocus } from "@/directives/vAutofocus";
+import { useWatchCharacters } from "@/composables/useWatchCharacters";
+
 const storeNotes = useStoreNotes()
 
 const newNote = ref({ title: '', content: '' })
@@ -28,6 +30,8 @@ function handleAddNote() {
 
   newNote.value = ref({ title: '', content: '' })
 }
+
+useWatchCharacters(newNote)
 
 </script>
 
