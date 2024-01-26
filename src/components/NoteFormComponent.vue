@@ -5,12 +5,13 @@
       <label for="title">Note Title</label>
     </div>
     <div>
-      <textarea v-model="newNote.content" v-autofocus maxlength="450" class="form-control" rows="5"
+      <textarea v-model="newNote.content" v-autofocus maxlength="350" class="form-control" rows="5"
         placeholder="Write note here..." id="content">
       </textarea>
     </div>
-    <div class="d-flex justify-content-end">
-      <button :disabled="!newNote.content" @click="handleAddNote" class="btn btn-primary">Create Note</button>
+    <div class="d-flex justify-content-end p-2">
+      <button :disabled="!newNote.content || !newNote.title" @click="handleAddNote" class="btn btn-primary">Create
+        Note</button>
     </div>
   </div>
 </template>

@@ -4,9 +4,9 @@
       <div class="card-body bg-lighter">
         <h5 class="card-title">{{ notes.title }}</h5>
         <p class="card-text">{{ notes.content }}</p>
-        <div class="text-end">
-          <small class="text-secondary">{{ characterLength }}</small>
-        </div>
+      </div>
+      <div class="text-end bg-lighter p-2">
+        <small class="text-secondary">{{ characterLength }}</small>
       </div>
       <div class="d-flex justify-content-between card-footer bg-light">
         <RouterLink :to="`/editNote/${notes.id}`">
@@ -46,8 +46,8 @@ const characterLength = computed(() => {
 
 <style scoped>
 .card-body{
-  height: 30vh;
-  max-height: 30vh;
+  height: 20rem;
+  max-height: 20rem;
 }
 .add-note:hover{
 transform: scale(1.2);

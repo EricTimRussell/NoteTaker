@@ -15,7 +15,8 @@
         </div>
         <div class="d-flex justify-content-end gap-1">
           <button @click="$router.back()" class="btn btn-danger">Cancel</button>
-          <button :disabled="!noteContent.content" @click="handleEditNote" class="btn btn-primary">Save Note</button>
+          <button :disabled="!noteContent.content || !noteContent.title" @click="handleEditNote"
+            class="btn btn-primary">Save Note</button>
         </div>
       </div>
     </div>
