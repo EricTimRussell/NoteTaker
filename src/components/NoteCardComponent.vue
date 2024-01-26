@@ -10,31 +10,32 @@
       </div>
       <div class="d-flex justify-content-between card-footer bg-light">
         <RouterLink :to="`/editNote/${notes.id}`">
-          <button class="card-link btn">
+          <button class="card-link btn" title="Edit Note">
             <span class="material-symbols-outlined edit-icon">
               edit
             </span>
           </button>
         </RouterLink>
-        <button @click="storeNotes.removeNote(notes.id)" class="card-link btn">
+        <button title="Delete Note" data-bs-toggle="modal" data-bs-target="#deleteModal" class="card-link btn">
           <span class="material-symbols-outlined delete-icon">
             delete_forever
           </span>
         </button>
       </div>
+      <DeleteNoteModal :notes="notes" />
     </div>
   </div>
 </template>
 
 <script setup>
 import { computed } from "vue";
-import { useStoreNotes } from "@/stores/storeNotes";
+import DeleteNoteModal from "@/components/DeleteNoteModal.vue";
 
 const props = defineProps({
   notes: { type: Object, required: true }
 })
 
-const storeNotes = useStoreNotes()
+
 
 const characterLength = computed(() => {
   let length = props.notes.content.length

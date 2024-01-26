@@ -20,7 +20,6 @@ const storeNotes = useStoreNotes()
 
 
 
-
 </script>
 
 <style scoped>
