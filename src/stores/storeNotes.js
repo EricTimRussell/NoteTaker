@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-
+import { db } from '@/firebase'
 export const useStoreNotes = defineStore('storeNotes' , {
   state: () => {
     return {
