@@ -16,26 +16,46 @@
             </span>
           </button>
         </RouterLink>
-        <button title="Delete Note" data-bs-toggle="modal" data-bs-target="#deleteModal" class="card-link btn">
+        <button @click="removeNote" title="Delete Note" class="card-link btn">
           <span class="material-symbols-outlined delete-icon">
             delete_forever
           </span>
+          <pre>{{ notes.id }}</pre>
         </button>
       </div>
-      <DeleteNoteModal :notes="notes" />
     </div>
   </div>
 </template>
 
 <script setup>
 import { computed } from "vue";
-import DeleteNoteModal from "@/components/DeleteNoteModal.vue";
+import Swal from "sweetalert2";
+import { useStoreNotes } from "@/stores/storeNotes";
 
 const props = defineProps({
   notes: { type: Object, required: true }
 })
+const storeNotes = useStoreNotes()
 
-
+async function removeNote() {
+  await Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      storeNotes.removeNote(props.notes.id)
+      Swal.fire(
+        'Note Deleted!',
+        'success'
+      )
+    }
+  })
+}
 
 const characterLength = computed(() => {
   let length = props.notes.content.length

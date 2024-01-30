@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { db } from '@/firebase'
-import { collection, onSnapshot, setDoc, addDoc } from "firebase/firestore";
+import { collection, onSnapshot, setDoc, addDoc, deleteDoc, doc } from "firebase/firestore";
 
 const notesCollectionRef = collection(db, "notes")
 
@@ -31,8 +31,9 @@ export const useStoreNotes = defineStore('storeNotes' , {
         content: newNote.value.content
       })
     },
-    removeNote(id){
-      this.notes = this.notes.filter(note =>  note.id !== id)
+    async removeNote(id){
+      // console.log(id)
+      await deleteDoc(doc(notesCollectionRef, id))
     },
     updateNote(id, content){
       let index = this.notes.findIndex(note => note.id === id)
