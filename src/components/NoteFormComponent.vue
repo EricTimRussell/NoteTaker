@@ -21,6 +21,7 @@ import { ref } from "vue";
 import { useStoreNotes } from "@/stores/storeNotes";
 import { vAutofocus } from "@/directives/vAutofocus";
 import { useWatchCharacters } from "@/composables/useWatchCharacters";
+import Swal from "sweetalert2";
 
 const storeNotes = useStoreNotes()
 
@@ -29,7 +30,6 @@ const newNote = ref({ title: '', content: '', })
 function handleAddNote() {
   let date = new Date().getTime()
   storeNotes.addNote(newNote, date)
-
   newNote.value = ref({ title: '', content: '' })
 }
 

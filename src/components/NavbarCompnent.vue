@@ -18,7 +18,7 @@
       </div>
       <div class="d-flex justify-content-end col-sm-4 col-md-7 d-none d-sm-flex p-2">
         <div class="pt-2 px-2">
-          <button class="btn btn-primary">Login/Create</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login/Create</button>
         </div>
         <div class="pt-2">
           <button class="btn btn-light">Logout</button>
