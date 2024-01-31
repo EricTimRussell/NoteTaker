@@ -24,7 +24,7 @@ export const useStoreNotes = defineStore('storeNotes' , {
           }
           notes.push(note)
         })
-        this.notes = notes
+          this.notes = notes
       })
     },
     async addNote(newNote, date){

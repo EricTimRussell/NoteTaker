@@ -7,6 +7,9 @@
     <!-- SECTION Note card -->
     <div class="row">
       <NoteCardComponent v-for="note in storeNotes.notes" :notes="note" :key="note.id" />
+      <div v-if="!storeNotes.notes.length" class="fs-xlg text-secondary py-5 col-12 d-flex justify-content-center">
+        No notes to display try adding a note...
+      </div>
     </div>
   </section>
 </template>

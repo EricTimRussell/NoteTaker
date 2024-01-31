@@ -38,11 +38,21 @@ const props = defineProps({
 })
 const storeNotes = useStoreNotes()
 
+// Format date displayed on notes
 const dateFormatted = computed(() => {
   let date = new Date(parseInt(props.notes.date))
   let formatedDate = useDateFormat(date, 'MM-DD-YYYY')
   return formatedDate.value
 })
+
+// Edit color of buttons in SweetAlerts
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: "btn btn-primary",
+    cancelButton: "btn btn-danger"
+  },
+  buttonsStyling: false
+});
 
 async function removeNote() {
   await Swal.fire({
@@ -56,10 +66,11 @@ async function removeNote() {
   }).then((result) => {
     if (result.isConfirmed) {
       storeNotes.removeNote(props.notes.id)
-      Swal.fire(
-        'Note Deleted!',
-        'success'
-      )
+      swalWithBootstrapButtons.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success"
+      });
     }
   })
 }
