@@ -24,10 +24,11 @@ import { useWatchCharacters } from "@/composables/useWatchCharacters";
 
 const storeNotes = useStoreNotes()
 
-const newNote = ref({ title: '', content: '' })
+const newNote = ref({ title: '', content: '', })
 
 function handleAddNote() {
-  storeNotes.addNote(newNote)
+  let date = new Date().getTime()
+  storeNotes.addNote(newNote, date)
 
   newNote.value = ref({ title: '', content: '' })
 }
