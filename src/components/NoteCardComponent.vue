@@ -5,7 +5,8 @@
         <h5 class="card-title">{{ notes.title }}</h5>
         <p class="card-text">{{ notes.content }}</p>
       </div>
-      <div class="text-end bg-lighter p-2">
+      <div class="d-flex justify-content-between bg-lighter p-2">
+        <small class="text-secondary">{{ dateFormatted }}</small>
         <small class="text-secondary">{{ characterLength }}</small>
       </div>
       <div class="d-flex justify-content-between card-footer bg-light">
@@ -30,11 +31,18 @@
 import { computed } from "vue";
 import Swal from "sweetalert2";
 import { useStoreNotes } from "@/stores/storeNotes";
+import { useDateFormat } from '@vueuse/core';
 
 const props = defineProps({
   notes: { type: Object, required: true }
 })
 const storeNotes = useStoreNotes()
+
+const dateFormatted = computed(() => {
+  let date = new Date(parseInt(props.notes.date))
+  let formatedDate = useDateFormat(date, 'MM-DD-YYYY')
+  return formatedDate.value
+})
 
 async function removeNote() {
   await Swal.fire({

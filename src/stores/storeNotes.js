@@ -4,6 +4,7 @@ import { collection, onSnapshot, setDoc, addDoc, deleteDoc, doc, updateDoc, quer
 
 const notesCollectionRef = collection(db, "notes")
 const notesCollectionQuery = query(notesCollectionRef, orderBy("date", "desc"))
+
 export const useStoreNotes = defineStore('storeNotes' , {
   state: () => {
     return {
@@ -18,7 +19,8 @@ export const useStoreNotes = defineStore('storeNotes' , {
           let note = {
             id: doc.id,
             title: doc.data().title,
-            content: doc.data().content
+            content: doc.data().content,
+            date: doc.data().date
           }
           notes.push(note)
         })
@@ -33,7 +35,6 @@ export const useStoreNotes = defineStore('storeNotes' , {
       })
     },
     async removeNote(id){
-      // console.log(id)
       await deleteDoc(doc(notesCollectionRef, id))
     },
     async updateNote(id, content){
