@@ -20,7 +20,6 @@
           <span class="material-symbols-outlined delete-icon">
             delete_forever
           </span>
-          <pre>{{ notes.id }}</pre>
         </button>
       </div>
     </div>
