@@ -18,10 +18,13 @@
 import NoteCardComponent from "@/components/NoteCardComponent.vue";
 import NoteFormComponent from "@/components/NoteFormComponent.vue";
 import { useStoreNotes } from "@/stores/storeNotes";
+import { onMounted } from "vue";
 
 const storeNotes = useStoreNotes()
 
-
+onMounted(() => {
+  storeNotes.getNotes()
+})
 
 </script>
 

@@ -11,15 +11,16 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import NavbarCompnent from "./components/NavbarCompnent.vue";
-import { useStoreNotes } from "./stores/storeNotes";
-import { onMounted } from "vue";
 import LoginModalComponent from "./components/LoginModalComponent.vue";
+import { useStoreAuth } from "./stores/storeAuth";
+import { onMounted } from "vue";
 
-const storeNotes = useStoreNotes()
+const storeAuth = useStoreAuth()
 
 onMounted(() => {
-  storeNotes.getNotes()
+  storeAuth.init()
 })
+
 </script>
 
 <style>
