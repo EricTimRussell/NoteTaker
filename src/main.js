@@ -2,7 +2,7 @@ import './assets/main.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 
-import { createApp } from 'vue'
+import { createApp, markRaw } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
@@ -13,9 +13,16 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 const app = createApp(App)
 
+
+// enable the use of router in pinia stores
+const pinia = createPinia()
+pinia.use(({ store }) => {
+  store.router = markRaw(router)
+})
+
 app.use(VueSweetalert2);
 
-app.use(createPinia())
+app.use(pinia)
 app.use(router)
 
 app.mount('#app')

@@ -16,9 +16,11 @@ export const useStoreAuth = defineStore('storeAuth' , {
         if (user) {
           this.user.id = user.uid
           this.user.email = user.email
+          this.router.push('/notes')
         } else {
           // if/when user is logged out
          this.user = {}
+         this.router.replace('/')
         }
       })
     },

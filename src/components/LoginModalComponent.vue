@@ -22,7 +22,7 @@
           <RouterLink to="/createAccount">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Create Account</button>
           </RouterLink>
-          <button :disabled="!credentials.email || !credentials.password" type="submit"
+          <button :disabled="!credentials.email || !credentials.password" data-bs-dismiss="modal" type="submit"
             class="btn btn-success">Login</button>
         </div>
       </div>
