@@ -21,10 +21,12 @@
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login/Create</button>
         </div>
         <div class="pt-2">
-          <button class="btn btn-light">Logout</button>
+          <button @click="storeAuth.logoutUser" class="btn btn-light">Logout</button>
         </div>
       </div>
     </div>
+
+    <!-- Mobile view only -->
     <div class="d-flex col-12 p-1 justify-content-end d-flex d-sm-none">
       <div class="dropdown">
         <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,8 +34,8 @@
             menu
           </span></button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Login/Create</a></li>
-          <li><a class="dropdown-item" href="#">Logout</a></li>
+          <li><button @click="storeAuth.logoutUser" class="dropdown-item">Login/Create</button></li>
+          <li><button class="dropdown-item">Logout</button></li>
         </ul>
       </div>
     </div>
@@ -42,6 +44,11 @@
 
 <script setup>
 import { RouterLink } from 'vue-router'
+import { useStoreAuth } from "@/stores/storeAuth";
+
+// store
+const storeAuth = useStoreAuth()
+
 
 </script>
 
