@@ -1,5 +1,5 @@
 <template>
-  <div id="loginModal" class="modal" tabindex="-1">
+  <form @submit.prevent="onSubmit" id="loginModal" class="modal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -8,28 +8,53 @@
         </div>
         <div class="modal-body">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <input v-model="credentials.email" type="email" class="form-control" id="email"
+              placeholder="name@example.com">
+            <label for="email">Email address</label>
           </div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+            <input v-model="credentials.password" type="password" class="form-control" id="password"
+              placeholder="Password">
+            <label for="password">Password</label>
           </div>
         </div>
         <div class="modal-footer">
           <RouterLink to="/createAccount">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Create Account</button>
           </RouterLink>
-          <button type="button" class="btn btn-success">Login</button>
+          <button :disabled="!credentials.email || !credentials.password" type="submit"
+            class="btn btn-success">Login</button>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import Swal from "sweetalert2";
+
+
+// Login credentials
+const credentials = ref({
+  email: '',
+  password: ''
+})
+
+// Handle login submit
+function onSubmit() {
+  if (!credentials.value.email || !credentials.value.password) {
+    Swal.fire({
+      title: "Please enter a valid email and password.",
+      icon: "error"
+    })
+  }
+  else {
+    console.log("logged in")
+  }
+}
 
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
 
