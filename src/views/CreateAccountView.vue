@@ -8,10 +8,6 @@
           <label for="createEmail">Email address</label>
         </div>
         <div class="form-floating mb-3">
-          <input v-model="credentials.username" type="text" class="form-control" id="username" placeholder="username">
-          <label for="username">username</label>
-        </div>
-        <div class="form-floating mb-3">
           <input v-model="credentials.password" type="password" class="form-control" id="createPassword"
             placeholder="Password">
           <label for="createPassword">Password</label>
@@ -34,25 +30,27 @@
 <script setup>
 import { ref } from "vue";
 import Swal from "sweetalert2";
+import { useStoreAuth } from "@/stores/storeAuth";
 
+// store
+const storeAuth = useStoreAuth()
 
 const credentials = ref({
   email: '',
-  username: '',
   password: '',
   passwordConfirm: ''
 })
 
 // handle create account submit
-async function onSubmit() {
-  if (!credentials.value.email || !credentials.value.password || !credentials.value.username) {
+function onSubmit() {
+  if (!credentials.value.email || !credentials.value.password) {
     Swal.fire({
       title: "Please enter a valid email, password, and username.",
       icon: "error"
     })
   }
   else {
-    console.log("account created")
+    storeAuth.createAccount(credentials)
   }
 }
 

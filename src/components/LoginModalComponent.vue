@@ -33,6 +33,10 @@
 <script setup>
 import { ref } from "vue";
 import Swal from "sweetalert2";
+import { useStoreAuth } from "@/stores/storeAuth";
+
+// store
+const storeAuth = useStoreAuth()
 
 
 // Login credentials
@@ -50,7 +54,7 @@ function onSubmit() {
     })
   }
   else {
-    console.log("logged in")
+    storeAuth.loginUser(credentials)
   }
 }
 
