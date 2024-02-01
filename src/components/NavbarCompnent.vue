@@ -17,11 +17,11 @@
         </nav>
       </div>
       <div class="d-flex justify-content-end col-sm-4 col-md-7 d-none d-sm-flex p-2">
-        <div class="pt-2 px-2">
+        <div v-if="!storeAuth.user.id" class="pt-2 px-2">
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login/Create</button>
         </div>
-        <div class="pt-2">
-          <button @click="storeAuth.logoutUser" class="btn btn-light">Logout</button>
+        <div v-if="storeAuth.user.id" class="pt-2">
+          <button @click="storeAuth.logoutUser" class="btn btn-light">Logout {{ storeAuth.user.email }}</button>
         </div>
       </div>
     </div>
@@ -34,8 +34,8 @@
             menu
           </span></button>
         <ul class="dropdown-menu">
-          <li><button @click="storeAuth.logoutUser" class="dropdown-item">Login/Create</button></li>
-          <li><button class="dropdown-item">Logout</button></li>
+          <li><button class="dropdown-item">Login/Create</button></li>
+          <li><button v-if="storeAuth.user.id" @click="storeAuth.logoutUser" class="dropdown-item">Logout</button></li>
         </ul>
       </div>
     </div>
