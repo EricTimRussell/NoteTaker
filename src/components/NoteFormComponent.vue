@@ -21,14 +21,17 @@ import { ref } from "vue";
 import { useStoreNotes } from "@/stores/storeNotes";
 import { vAutofocus } from "@/directives/vAutofocus";
 import { useWatchCharacters } from "@/composables/useWatchCharacters";
+import { useStoreAuth } from "@/stores/storeAuth";
 
 const storeNotes = useStoreNotes()
 
-const newNote = ref({ title: '', content: '', })
+const newNote = ref({ title: '', content: '' })
 
-function handleAddNote() {
+const user = useStoreAuth()
+
+async function handleAddNote() {
   let date = new Date().getTime()
-  storeNotes.addNote(newNote, date)
+  storeNotes.addNote(newNote, date, user.user.id)
   newNote.value = ref({ title: '', content: '' })
 }
 
