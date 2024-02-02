@@ -17,13 +17,19 @@
 <script setup>
 import NoteCardComponent from "@/components/NoteCardComponent.vue";
 import NoteFormComponent from "@/components/NoteFormComponent.vue";
+import { useStoreAuth } from "@/stores/storeAuth";
 import { useStoreNotes } from "@/stores/storeNotes";
 import { onMounted } from "vue";
 
 const storeNotes = useStoreNotes()
 
+const user = useStoreAuth()
+
 onMounted(() => {
-  storeNotes.getNotes()
+  if (user.user.id == null) {
+    return
+  }
+  storeNotes.getNotesByCreatorId(user.user.id)
 })
 
 </script>

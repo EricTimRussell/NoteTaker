@@ -23,8 +23,7 @@ pinia.use(({ store }) => {
   store.router = markRaw(router)
 })
 
-app
-  .use(VueFire, {
+app.use(VueFire, {
     firebaseApp,
     modules: [
       VueFireAuth(),
